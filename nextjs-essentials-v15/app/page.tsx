@@ -1,10 +1,18 @@
-import Link  from 'next/link'
+import Link from "next/link";
 
-export default function Home(){
+export default function Home() {
   return (
     <main>
-      <h2>Homepage</h2>
-      <Link href="/about">About us</Link>
+      <h1>Time to get started! </h1>
+      <p>
+        <Link href="/meals">Meals</Link>
+      </p>
+      <p>
+        <Link href="/meals/share">Share a Meal</Link>
+      </p>
+      <p>
+        <Link href="/community">Community</Link>
+      </p>
     </main>
-  )
+  );
 }
