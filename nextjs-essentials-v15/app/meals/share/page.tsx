@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import ImagePicker from "../../../components/meals/image-picker";
 import { shareMeal } from "@/lib/actions";
+import MealsFormSubmit from "../meals-form-submit";
+// import { useFormState } from "react-dom";
 
 export default function ShareMealPage() {
+  // const [state,formAction]=useFormState(shareMeal,{message:null})
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
@@ -11,7 +14,7 @@ export default function ShareMealPage() {
     <main>
       <h1>Share a Meal</h1>
       <p>Share your favorite meal with us!</p>
-      <form action={shareMeal} method="post">
+      <form action={shareMeal} method="post"> 
         <div>
           <label htmlFor="title">Meal Title</label>
           <input
@@ -32,7 +35,7 @@ export default function ShareMealPage() {
           />
         </div>
         <ImagePicker label="Image" name="image" />
-        <button type="submit">Share Meal</button>
+        <MealsFormSubmit />
       </form>
     </main>
   );

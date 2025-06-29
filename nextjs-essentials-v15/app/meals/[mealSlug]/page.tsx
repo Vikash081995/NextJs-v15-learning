@@ -2,6 +2,27 @@ import React from "react";
 import Image from "next/image";
 import { getMealbySlug } from "@/lib/meals";
 
+interface GenerateMetaDataParams {
+  params: {
+    mealSlug: string;
+  };
+}
+
+interface MetaData {
+  title: string;
+  description: string;
+}
+
+export async function generateMetaData({ params }: GenerateMetaDataParams): Promise<MetaData> {
+  const meal = await getMealbySlug(params.mealSlug);
+
+  return {
+    title: meal.title,
+    description: meal.summary,
+  };
+}
+
+
 export default async function MealDetail({
   params,
 }: {

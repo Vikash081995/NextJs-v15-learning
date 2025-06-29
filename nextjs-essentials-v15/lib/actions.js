@@ -1,4 +1,6 @@
 'use server';
+import { saveMeal } from "./meals";
+import { redirect } from "next/navigation";
 
 export async function shareMeal(fromData) {
 
@@ -9,4 +11,8 @@ export async function shareMeal(fromData) {
   };
   
   console.log('Meal shared:', mealData);
+await saveMeal(mealData);
+revalidatePath('/meals')
+redirect('/meals');
+
 }
